@@ -1,5 +1,5 @@
 # Command-line-interpreter
-A java project that simulates the terminal in Ubuntu Linux.
+A Java project that simulates the terminal in Ubuntu Linux.
 
 It was made as a team assignment for operating systems-I course at FCI-CU.
 
