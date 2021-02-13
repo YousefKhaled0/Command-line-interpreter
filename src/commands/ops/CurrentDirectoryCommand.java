@@ -2,7 +2,7 @@ package commands.ops;
 
 import java.io.File;
 
-public class CurrentDirectoryCommand implements OperationCommand {
+public class CurrentDirectoryCommand extends OperationCommand {
 
     @Override
     public void execute(File curr, String... args) throws IllegalArgumentException {

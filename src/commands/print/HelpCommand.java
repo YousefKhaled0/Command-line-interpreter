@@ -5,9 +5,7 @@ public class HelpCommand implements PrintCommand {
     @Override
     public void execute(String... args) throws IllegalArgumentException {
         if (args == null || args.length == 0) {
-            for (int i = 0; i < 10; i++) {
-                displayHelp();
-            }
+            displayHelp();
         } else
             throw new IllegalArgumentException("--------help takes no args.");
     }
@@ -29,6 +27,7 @@ public class HelpCommand implements PrintCommand {
         System.out.println("cat: Displays contents of a file and concatenates files and display output.");
         System.out.println("more: Displays and scroll down the output in one direction only.");
         System.out.println("less: Like more but more enhanced.");
+        System.out.println("grep: get word in file.");
         System.out.println("exit: Terminates the program.");
     }
 

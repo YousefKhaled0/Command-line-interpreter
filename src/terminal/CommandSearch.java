@@ -26,6 +26,9 @@ public class CommandSearch {
         command.put("mkdir", MakeDirectoryCommand.class);
         command.put("ls", ListFilesCommand.class);
         command.put("rmdir", RemoveDirectoryCommand.class);
+        command.put("cat", ConcatenateCommand.class);
+        command.put("rm", RemoveCommand.class);
+        command.put("grep", GrepCommand.class);
     }
 
     public File findAndExecute(String c, File curr) throws IllegalAccessException, InstantiationException {

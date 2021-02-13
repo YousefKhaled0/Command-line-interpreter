@@ -3,7 +3,7 @@ package commands.ops;
 import java.io.File;
 import java.util.Arrays;
 
-public class ListFilesCommand implements OperationCommand {
+public class ListFilesCommand extends OperationCommand {
 
     @Override
     public void execute(File curr, String... args) throws Exception {

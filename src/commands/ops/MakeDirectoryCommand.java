@@ -4,9 +4,7 @@ import commands.helpers.FileHelper;
 
 import java.io.File;
 
-public class MakeDirectoryCommand implements OperationCommand {
-
-    FileHelper fileHelper = new FileHelper();
+public class MakeDirectoryCommand extends OperationCommand {
 
     @Override
     public void execute(File curr, String... args) throws Exception {

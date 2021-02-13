@@ -1,12 +1,8 @@
 package commands.dir;
 
-import commands.helpers.FileHelper;
-
 import java.io.File;
 
-public class ChangeDirectory implements DirectoryCommand {
-
-    private FileHelper fileHelper = new FileHelper();
+public class ChangeDirectory extends DirectoryCommand {
 
     @Override
     public File execute(File curr, String... args) throws Exception {

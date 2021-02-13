@@ -1,30 +1,26 @@
 package commands.ops;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 
-public class ConcatenateCommand implements OperationCommand {
+public class ConcatenateCommand extends OperationCommand {
+
 
     @Override
     public void execute(File curr, String... args) throws Exception {
-
-    }
-/**
-    static void cat(File arr[], String fileName)
-    {
-        String absPath = lookup(arr, fileName) ;
-        if(absPath.equals("Not found"))
-        {
-            System.out.println("No such file named: "+fileName);
-            return ;
+        if (args == null || args.length < 1) {
+            throw new IllegalArgumentException("---------Too few args.");
         }
-        File f = new File(absPath) ;
-        try {
-            Scanner input = new Scanner(f) ;
-            while(input.hasNextLine())
-            {
-                System.out.println(input.nextLine());
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }**/
+        for (String arg : args) {
+            cat(fileHelper.getFile(curr, arg));
+        }
+    }
+
+    private void cat(File f) throws FileNotFoundException {
+        Scanner input = new Scanner(f);
+        while (input.hasNextLine()) {
+            System.out.println(input.nextLine());
+        }
+    }
 }

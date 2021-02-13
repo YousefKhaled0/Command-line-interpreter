@@ -24,5 +24,6 @@ public class ArgsCommand implements PrintCommand {
         System.out.println("rm: [arg] deletes a file whose name is the given argument.");
         System.out.println("cat: [arg1] displays contents of arg1(file).");
         System.out.println("cat: [arg1] [arg2] concatenates contents of arg1 to contents of arg2 and displays the result.");
+        System.out.println("grep: [arg1] [arg2] get lines of occurrences of arg1 in file arg2.");
     }
 }

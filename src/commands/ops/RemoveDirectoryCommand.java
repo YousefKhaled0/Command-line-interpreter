@@ -1,11 +1,8 @@
 package commands.ops;
 
-import commands.helpers.FileHelper;
-
 import java.io.File;
 
-public class RemoveDirectoryCommand implements OperationCommand {
-    private FileHelper fileHelper = new FileHelper();
+public class RemoveDirectoryCommand extends OperationCommand {
 
     @Override
     public void execute(File curr, String... args) throws Exception {
