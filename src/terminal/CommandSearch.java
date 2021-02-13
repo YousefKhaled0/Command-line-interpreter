@@ -2,10 +2,7 @@ package terminal;
 
 import commands.dir.ChangeDirectory;
 import commands.dir.DirectoryCommand;
-import commands.ops.CurrentDirectoryCommand;
-import commands.ops.ListFilesCommand;
-import commands.ops.MakeDirectoryCommand;
-import commands.ops.OperationCommand;
+import commands.ops.*;
 import commands.print.*;
 import commands.system.ExitCommand;
 import commands.system.SystemCommand;
@@ -28,6 +25,7 @@ public class CommandSearch {
         command.put("cd", ChangeDirectory.class);
         command.put("mkdir", MakeDirectoryCommand.class);
         command.put("ls", ListFilesCommand.class);
+        command.put("rmdir", RemoveDirectoryCommand.class);
     }
 
     public File findAndExecute(String c, File curr) throws IllegalAccessException, InstantiationException {

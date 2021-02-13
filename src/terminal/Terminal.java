@@ -12,7 +12,7 @@ public class Terminal {
         String message = System.getProperty("user.name");
         if (os.toLowerCase().contains("windows")) {
             curr = new File("C:\\");
-            message = "C: ";
+            message = "command: ";
         } else {
             curr = new File("/home");
             message += "@linux: ";

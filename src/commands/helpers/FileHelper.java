@@ -8,31 +8,43 @@ public class FileHelper {
     public File getDir(File curr, String targetPath) throws FileNotFoundException {
         File target = new File(targetPath);
         if (target.isAbsolute()) {
-            if (target.exists()) return target;
-            else throw new FileNotFoundException("dir doesn't exist");
+            if (target.exists() && target.isDirectory()) return target;
+            if (target.exists() && !target.isDirectory())
+                throw new IllegalArgumentException(String.format("---------%s isn't a dir.", targetPath));
+            else throw new FileNotFoundException(String.format("---------%s doesn't exist.", targetPath));
         }
         String path = String.format("%s/%s", curr.getAbsolutePath(), targetPath);
         target = new File(path);
         if (target.exists()) {
             if (!target.isDirectory())
-                throw new IllegalArgumentException("---------arg isn't a dir.");
+                throw new IllegalArgumentException(String.format("---------%s isn't a dir.", targetPath));
             return target;
-        } else throw new FileNotFoundException("dir doesn't exist");
+        } else throw new FileNotFoundException(String.format("------------%s doesn't exist.", targetPath));
     }
 
     public void touchDir(File curr, String newDir) {
         File target = new File(newDir);
-        if (target.isAbsolute()) {
-            target.mkdir();
+        if (!target.isAbsolute()) {
+            String path = String.format("%s/%s", curr.getAbsolutePath(), newDir);
+            target = new File(path);
         }
-        String path = String.format("%s/%s", curr.getAbsolutePath(), newDir);
-        target = new File(path);
         target.mkdir();
     }
 
-    public static void main(String[] args) throws FileNotFoundException {
-        FileHelper fileHelper = new FileHelper();
-        fileHelper.getDir(new File("."), "src");
+    public File getFile(File curr, String targetPath) throws FileNotFoundException {
+        File target = new File(targetPath);
+        if (target.isAbsolute()) {
+            if (target.exists() && !target.isDirectory()) return target;
+            if (target.exists() && target.isDirectory())
+                throw new IllegalArgumentException(String.format("---------%s isn't a file.", targetPath));
+            else throw new FileNotFoundException(String.format("---------%s doesn't exist.", targetPath));
+        }
+        String path = String.format("%s/%s", curr.getAbsolutePath(), targetPath);
+        target = new File(path);
+        if (target.exists()) {
+            if (target.isDirectory())
+                throw new IllegalArgumentException(String.format("---------%s isn't a file.", targetPath));
+            return target;
+        } else throw new FileNotFoundException(String.format("------------%s doesn't exist.", targetPath));
     }
-
 }
