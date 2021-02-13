@@ -19,11 +19,12 @@ public class GrepCommand extends OperationCommand {
     }
 
     private void grep(File f, String word) throws FileNotFoundException {
-        Scanner input = new Scanner(f);
-        while (input.hasNextLine()) {
-            String line = input.nextLine();
-            if (line.contains(word)) {
-                System.out.println(line);
+        try (Scanner input = new Scanner(f)) {
+            while (input.hasNextLine()) {
+                String line = input.nextLine();
+                if (line.contains(word)) {
+                    System.out.println(line);
+                }
             }
         }
     }

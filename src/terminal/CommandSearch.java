@@ -31,6 +31,8 @@ public class CommandSearch {
         command.put("grep", GrepCommand.class);
         command.put("cp", CopyCommand.class);
         command.put("mv", MoveCommand.class);
+        command.put("less", LessCommand.class);
+        command.put("more", MoreCommand.class);
     }
 
     public File findAndExecute(String c, File curr) throws IllegalAccessException, InstantiationException {

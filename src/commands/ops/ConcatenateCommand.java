@@ -22,9 +22,10 @@ public class ConcatenateCommand extends OperationCommand {
     }
 
     private void cat(File f) throws FileNotFoundException {
-        Scanner input = new Scanner(f);
-        while (input.hasNextLine()) {
-            System.out.println(input.nextLine());
+        try (Scanner input = new Scanner(f)){
+            while (input.hasNextLine()) {
+                System.out.println(input.nextLine());
+            }
         }
     }
 }
