@@ -29,6 +29,8 @@ public class CommandSearch {
         command.put("cat", ConcatenateCommand.class);
         command.put("rm", RemoveCommand.class);
         command.put("grep", GrepCommand.class);
+        command.put("cp", CopyCommand.class);
+        command.put("mv", MoveCommand.class);
     }
 
     public File findAndExecute(String c, File curr) throws IllegalAccessException, InstantiationException {

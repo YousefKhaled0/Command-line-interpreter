@@ -10,7 +10,11 @@ public class RemoveDirectoryCommand extends OperationCommand {
             throw new IllegalArgumentException("-----Too few args.");
         }
         for (String arg : args) {
-            fileHelper.getDir(curr, arg).delete();
+            try {
+                fileHelper.getDir(curr, arg).delete();
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
         }
     }
 }

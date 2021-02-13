@@ -13,7 +13,11 @@ public class ConcatenateCommand extends OperationCommand {
             throw new IllegalArgumentException("---------Too few args.");
         }
         for (String arg : args) {
-            cat(fileHelper.getFile(curr, arg));
+            try {
+                cat(fileHelper.getFile(curr, arg));
+            }catch (Exception e){
+                System.out.println(e.getMessage());
+            }
         }
     }
 

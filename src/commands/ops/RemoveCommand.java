@@ -10,7 +10,11 @@ public class RemoveCommand extends OperationCommand {
             throw new IllegalArgumentException("---------Too few args.");
         }
         for (String arg : args) {
-            fileHelper.getFile(curr, arg).delete();
+            try {
+                fileHelper.getFile(curr, arg).delete();
+            }catch (Exception e){
+                System.out.println(e.getMessage());
+            }
         }
     }
 }
